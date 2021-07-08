@@ -17,6 +17,11 @@ export function loadScript (trackerScript) {
   })
 }
 
-export function getResolvedHref (router, path) {
-  return router.resolve(path).href
+export function getResolvedHref(router, path) {
+  let url = router.resolve(path).href
+  if (url.indexOf('/') !== 0) {
+    return '/' + url
+  } else {
+    return url
+  }
 }
